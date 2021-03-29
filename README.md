@@ -15,9 +15,9 @@
 ## Install
 
 in the project folder:
-git init
-git pull https://github.com/Florent-Marcel/PIDLaravelA
-composer update
+- git init
+- git pull https://github.com/Florent-Marcel/PIDLaravelA
+- composer update
 
 ## About Laravel
 
