@@ -7,6 +7,19 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## requirements
+
+- PHP 8.0.3 or superior,
+- Composer.
+
+## Install
+
+in the project folder:
+- git init,
+- git pull https://github.com/Florent-Marcel/PIDLaravelA,
+- composer update,
+- Set your database information in the .env file.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
