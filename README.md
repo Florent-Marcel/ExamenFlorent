@@ -9,15 +9,16 @@
 
 ## requirements
 
-- PHP 8.0.3 or superior
-- Composer
+- PHP 8.0.3 or superior,
+- Composer.
 
 ## Install
 
 in the project folder:
-- git init
-- git pull https://github.com/Florent-Marcel/PIDLaravelA
-- composer update
+- git init,
+- git pull https://github.com/Florent-Marcel/PIDLaravelA,
+- composer update,
+- Set your database information in the .env file.
 
 ## About Laravel
 
