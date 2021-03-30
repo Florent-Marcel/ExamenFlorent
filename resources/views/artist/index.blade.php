@@ -3,7 +3,7 @@
 @section('title', 'Liste des artistes')
 
 @section('content')
-    <h1>Liste des {{ $ressource }}</h1>
+    <h1>Liste des {{ $resource }}</h1>
 
     <table>
         <thead>
@@ -13,14 +13,15 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($artists as $artist)
-                <tr>
-                    <td>{{ $artist->firstname }}</td>
-                    <td>
-                        <a href="{{ route('artist_show', $artist->id )}}">{{ $artist->lastname }}</a>
-                    </td>
-                </tr>
-            @endforeach
+        @foreach($artists as $artist)
+            <tr>
+                <td>{{ $artist->firstname }}</td>
+                <td>
+                    <a href="{{ route('artist_show', $artist->id) }}">{{ $artist->lastname }}</a>
+                </td>
+            </tr>
+        @endforeach
         </tbody>
     </table>
 @endsection
+
