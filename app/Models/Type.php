@@ -11,7 +11,7 @@ class Type extends Model
 
     protected $fillable = ['type'];
 
-    protected $table = ['types'];
+    protected $table = 'types';
 
     public $timestamps = false;
 }

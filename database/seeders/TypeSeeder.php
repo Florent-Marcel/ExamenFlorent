@@ -24,7 +24,7 @@ class TypeSeeder extends Seeder
             ['type'=>"Jongleur"],
             ['type'=>"Marionnettiste"],
             ['type'=>"Musicien‎"],
-            ['type'=>"Prestidigitateur"],
+            ['type'=>"Prestidigitateur"]
         ];
 
         DB::table('types')->insert($types);
