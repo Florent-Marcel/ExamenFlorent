@@ -1,10 +1,7 @@
-@extends('layouts.app')
-
-@section('title', 'Liste des localités')
-
-@section('content')
-    <h1>Liste des {{ $resource }}</h1>
-
+<x-app-layout>
+    <x-slot name="header">
+        <h1>Liste des {{ $resource }}</h1>
+    </x-slot>
     <table>
         <thead>
             <tr>
@@ -17,11 +14,11 @@
             <tr>
                 <td>{{ $locality->locality }}</td>
                 <td>
-                    <a href="{{ route('locality_show', $locality->id) }}">{{ $locality->locality }}</a>
+                    <a class="hover:text-blue-600" href="{{ route('locality_show', $locality->id) }}">{{ $locality->locality }}</a>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-@endsection
+</x-app-layout>
 

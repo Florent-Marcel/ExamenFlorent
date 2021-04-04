@@ -20,24 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-Route::get('/artist', [ArtistController::class, 'index'])->middleware(['auth'])->name('artist_index');
-
+Route::get('/artist', [ArtistController::class, 'index'])->name('artist_index');
 Route::get('/artist/{id}', [ArtistController::class, 'show'])
-	->where('id', '[0-9]+')->middleware(['auth'])->name('artist_show');
-
-Route::get('/type', [TypeController::class, 'index'])->middleware(['auth'])->name('type_index');
-
+	->where('id', '[0-9]+')->name('artist_show');
+Route::get('/type', [TypeController::class, 'index'])->name('type_index');
 Route::get('/type/{id}', [TypeController::class, 'show'])
-        ->where('id', '[0-9]+')->middleware(['auth'])->name('type_show');
+        ->where('id', '[0-9]+')->name('type_show');
 
-Route::get('/locality', [LocalityController::class, 'index'])->middleware(['auth'])->name('locality_index');
-
+Route::get('/locality', [LocalityController::class, 'index'])->name('locality_index');
 Route::get('/locality/{id}', [LocalityController::class, 'show'])
-        ->where('id', '[0-9]+')->middleware(['auth'])->name('locality_show');
+        ->where('id', '[0-9]+')->name('locality_show');
 
-
-require __DIR__.'/auth.php';
