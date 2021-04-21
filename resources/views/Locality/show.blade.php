@@ -5,7 +5,7 @@
 
 @section('content')
     @if (! empty ($locality))
-      <h1>{{ $locality->locality }} {{ $locality->locality }}</h1>
+      <h1>{{ $locality->locality }} {{ $locality->postal_code }}</h1>
       <nav><a href="{{ route('locality_index') }}">Retour à l'index</a></nav>
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
