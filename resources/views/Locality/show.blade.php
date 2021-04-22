@@ -1,9 +1,7 @@
-@extends('layouts.app')
-
-
-@section('title', 'Fiche d\'une localité')
-
-@section('content')
+<x-app-layout>
+    <x-slot name="header">
+        <h2>Fiche d'une Localité</h2>
+    </x-slot>
     @if (! empty ($locality))
       <h1>{{ $locality->locality }} {{ $locality->postal_code }}</h1>
       <ul>
@@ -15,5 +13,5 @@
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif
-@endsection
+</x-app-layout>
 

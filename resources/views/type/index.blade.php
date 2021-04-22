@@ -1,9 +1,7 @@
-@extends('layouts.app')
-
-@section('title', 'Liste des types')
-
-@section('content')
+<x-app-layout>
+    <x-slot name="header">
     <h1> Liste des {{$resource}} </h1>
+    </x-slot>
 
     <table>
         <thead>
@@ -15,10 +13,10 @@
             @foreach ($types as $type)
                 <tr>
                     <td>
-                        <a href="{{ route('type_show', $type->id)}}">{{$type->type }}
+                        <a class="hover:text-blue-600" href="{{ route('type_show', $type->id)}}">{{$type->type }}
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-@endsection
+</x-app-layout>

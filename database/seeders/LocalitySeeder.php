@@ -22,5 +22,12 @@ class LocalitySeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         Locality::factory()->count(30)->create();
+
+        $Localities = [
+            ['postal_code' => '1170', 'locality' => 'Watermael-Boisfort'],
+            ['postal_code' => '1000', 'Locality' => 'Bruxelles'],
+        ];
+
+        DB::table('localities')->insert($Localities);
     }
 }
