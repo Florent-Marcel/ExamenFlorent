@@ -29,4 +29,9 @@ class Locality extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
 }
