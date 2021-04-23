@@ -12,10 +12,9 @@
         <tbody>
         @foreach($artists as $artist)
             <tr>
+                <td>{{ $artist->firstname }}</td>
                 <td>
-                    <div>
-                        <a class="hover:text-blue-600" href="{{ route('artist_show', $artist->id) }}">{{ $artist->lastname }}</a>
-                    </div>
+                    <a class="hover:text-blue-600" href="{{ route('artist_show', $artist->id) }}">{{ $artist->lastname }}</a>
                 </td>
             </tr>
         @endforeach
