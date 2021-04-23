@@ -1,10 +1,7 @@
-@extends('layouts.app')
-
-@section('title', 'Liste des artistes')
-
-@section('content')
+<x-app-layout>
+    <x-slot name="header">
     <h1>Liste des {{ $resource }}</h1>
-
+    </x-slot>
     <table>
         <thead>
             <tr>
@@ -15,13 +12,15 @@
         <tbody>
         @foreach($artists as $artist)
             <tr>
-                <td>{{ $artist->firstname }}</td>
                 <td>
-                    <a href="{{ route('artist_show', $artist->id) }}">{{ $artist->lastname }}</a>
+                        {{ $artist->firstname }}</td>
+                <td>
+                    <a class="hover:text-blue-600" href="{{ route('artist_show', $artist->id) }}">{{ $artist->lastname }}</a>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-@endsection
 
+
+</x-app-layout>

@@ -29,4 +29,13 @@ class Locality extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Define the relation with Location
+     *
+     */
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
 }
