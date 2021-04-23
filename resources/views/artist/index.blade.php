@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-    <h1>Liste des {{ $resource }}</h1>
+        <h1>Liste des {{ $resource }}</h1>
     </x-slot>
     <table>
         <thead>
@@ -13,9 +13,9 @@
         @foreach($artists as $artist)
             <tr>
                 <td>
-                        {{ $artist->firstname }}</td>
-                <td>
-                    <a class="hover:text-blue-600" href="{{ route('artist_show', $artist->id) }}">{{ $artist->lastname }}</a>
+                    <div>
+                        <a class="hover:text-blue-600" href="{{ route('artist_show', $artist->id) }}">{{ $artist->lastname }}</a>
+                    </div>
                 </td>
             </tr>
         @endforeach

@@ -1,8 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-    <h1>Liste des {{ $resource }}</h1>
+        <h1>Liste des {{ $resource }}</h1>
     </x-slot>
-
     <table>
         <thead>
             <tr>
