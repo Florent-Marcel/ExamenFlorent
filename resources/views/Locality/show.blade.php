@@ -5,7 +5,13 @@
     </x-slot>
 
     @if (! empty ($locality))
-      <h1>{{ $locality->locality }} {{ $locality->locality }}</h1>
+      <h1>{{ $locality->postal_code }} {{ $locality->locality }}</h1>
+
+      <ul>
+          @foreach($locality->locations as $location)
+            <li>{{ $location->designation }}</li>
+          @endforeach
+      </ul>
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif
