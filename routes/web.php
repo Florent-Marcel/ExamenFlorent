@@ -5,6 +5,7 @@ use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\LocalityController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\RepresentationController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\RoleController;
 
@@ -50,6 +51,10 @@ Route::get('/location/{id}', [LocationController::class, 'show'])
 Route::get('/show', [ShowController::class, 'index'])->middleware(['auth'])->name('show_index');
 Route::get('/show/{id}', [ShowController::class, 'show'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('show_show');
+
+Route::get('/representation', [RepresentationController::class, 'index'])->middleware(['auth'])->name('representation_index');
+Route::get('/representation/{id}', [RepresentationController::class, 'show'])
+                ->where('id', '[0-9]+')->middleware(['auth'])->name('representation_show');
 
 
 require __DIR__.'/auth.php';
