@@ -27,7 +27,7 @@ class ShowSeeder extends Seeder
                     . "Questionné par les douaniers, il doit alors justifier son identité, "
                     . "et surtout prouver qu'il est haïtien - qu'est-ce qu'être haïtien ?",
                 'poster_url'=>'ayiti.jpg',
-                'location_slug'=>'espace-delvaux-la-venerie',
+                'location_slug'=>'Espace-Delvaux-La-Vénerie',
                 'bookable'=>true,
                 'price'=>8.50,
             ],
@@ -37,7 +37,7 @@ class ShowSeeder extends Seeder
                 'description'=>"Dans ce thriller d'anticipation, des adultent semblent alimenter \n"
                     . "et véhiculer une crainte féroce envers les enfats agés entre 10 et 12 ans.",
                 'poster_url'=>'cible.jpg',
-                'location_slug'=>'dexia-art-center',
+                'location_slug'=>'Dexia-Art-Center',
                 'bookable'=>true,
                 'price'=>9.00,
             ],
@@ -59,7 +59,7 @@ class ShowSeeder extends Seeder
                 'description'=>"À tour de rôle, Pierre se jour de ses oncles, "
                     . "tantes, grand-parents, et surtout de sa mère.",
                 'poster_url'=>'wayburn.jpg',
-                'location_slug'=>'la-samaritaine',
+                'location_slug'=>'La-Samaritaine',
                 'bookable'=>true,
                 'price'=>10.50,
             ],
@@ -70,7 +70,7 @@ class ShowSeeder extends Seeder
             unset($data['location_slug']);
 
             $data['slug'] = Str::slug($data['title'],'-');
-            $date['location_id'] = $location->id ?? null;
+            $data['location_id'] = $location->id ?? null;
         }
 
         unset($data);

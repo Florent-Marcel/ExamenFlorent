@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\LocalityController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RoleController;
 
 /*
@@ -40,6 +41,10 @@ Route::get('/role/{id}', [RoleController::class, 'show'])
 Route::get('/locality', [LocalityController::class, 'index'])->middleware(['auth'])->name('locality_index');
 Route::get('/locality/{id}', [LocalityController::class, 'show'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('locality_show');
+
+Route::get('/location', [LocationController::class, 'index'])->middleware(['auth'])->name('location_index');
+Route::get('/location/{id}', [LocationController::class, 'show'])
+        ->where('id', '[0-9]+')->middleware(['auth'])->name('location_show');
 
 
 require __DIR__.'/auth.php';

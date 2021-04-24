@@ -42,12 +42,12 @@ class Location extends Model
      */
     public function locality()
     {
-        return $this->belongsTo('App\Locality');
+        return $this->belongsTo(Locality::class);
     }
 
     public function shows()
     {
-        return $this->hasMany('Show::class');
+        return $this->hasMany(Show::class);
     }
 
 }
