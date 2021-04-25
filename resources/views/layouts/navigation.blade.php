@@ -24,6 +24,15 @@
                     <x-nav-link :href="route('type_index')" :active="request()->routeIs('type_index')">
                         {{ __('Type') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('location_index')" :active="request()->routeIs('location_index')">
+                        {{ __('Location') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('show_index')" :active="request()->routeIs('show_index')">
+                        {{ __('Show') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('representation_index')" :active="request()->routeIs('representation_index')">
+                        {{ __('Représentation') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
