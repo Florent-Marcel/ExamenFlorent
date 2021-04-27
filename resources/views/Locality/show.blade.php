@@ -5,7 +5,7 @@
     </x-slot>
 
     @if (! empty ($locality))
-      <h1>{{ $locality->postal_code }} {{ $locality->locality }}</h1>
+      <h1 class="text-xl font-bold">{{ $locality->postal_code }} {{ $locality->locality }}</h1>
 
       <ul>
           @foreach($locality->locations as $location)
@@ -15,5 +15,6 @@
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif
+    <br/>
     <nav><a class="hover:text-blue-600" href="{{ route('locality_index') }}">Retour à l'index</a></nav>
 </x-app-layout>

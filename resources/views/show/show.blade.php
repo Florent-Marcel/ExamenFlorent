@@ -5,7 +5,8 @@
 
     @if (! empty ($show))
         <article>
-            <h1>{{$show->title}}</h1>
+            <h1 class="text-xl font-bold">{{$show->title}}</h1>
+            <br/>
             @if ($show->poster_url)
                 <p><img src="{{ asset('images/'.$show->poster_url) }}" alt="{{ $show->title }}" width="200" ></p>
             @else
@@ -23,8 +24,8 @@
             @else
                 <p><em>Non réservable</em></p>
             @endif
-
-            <h2 class="text-lg font-bold" >Liste des représentations</h2>
+            <br/>
+            <h2 class="text-lg" >Liste des représentations</h2>
             @if($show->representations->count()==1)
                 <ul>
                     @foreach ($show->representations as $representation)
@@ -47,5 +48,6 @@
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif
+    <br/>
     <nav><a class="hover:text-blue-600" href="{{ route('show_index') }}">Retour à l'index</a></nav>
 </x-app-layout>

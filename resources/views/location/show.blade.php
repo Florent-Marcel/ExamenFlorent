@@ -5,7 +5,8 @@
 
     @if (! empty ($location))
         <article>
-            <h1>{{$location->designation}}</h1>
+            <h1 class="text-xl font-bold">{{$location->designation}}</h1>
+            <br/>
             <address>
                 <p>{{ $location->address }}</p>
                 <p>
@@ -25,8 +26,8 @@
                     <p>Pas de téléphone</p>
                 @endif
             </address>
-
-            <h2>Liste des spectacles</h2>
+            <br/>
+            <h2 class="text-lg">Liste des spectacles</h2>
             <ul>
                 @foreach ($location->shows as $show)
                     <li>{{ $show->title }}</li>
@@ -36,5 +37,6 @@
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif
+    <br/>
     <nav><a class="hover:text-blue-600" href="{{ route('location_index') }}">Retour à l'index</a></nav>
 </x-app-layout>
