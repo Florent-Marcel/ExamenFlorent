@@ -16,6 +16,6 @@ class Type extends Model
     public $timestamps = false;
 
     public function artists(){
-        $this->belongsToMany(Artist::class);
+        return $this->belongsToMany(Artist::class);
     }
 }

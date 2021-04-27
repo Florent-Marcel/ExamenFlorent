@@ -4,6 +4,13 @@
     </x-slot>
     @if (!empty ($type))
         <h1> {{ $type->type}} </h1>
+
+        <h2>Liste des artistes</h2>
+        <ul>
+            @foreach ($type->artists as $artist)
+                <li>{{ $artist->firstname }} {{ $artist->lastname }}</li>
+            @endforeach
+        </ul>
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif
