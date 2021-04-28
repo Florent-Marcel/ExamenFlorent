@@ -54,8 +54,15 @@ class ShowController extends Controller
     {
         $show = Show::find($id);
 
+        $collaborateurs = [];
+
+        foreach($show->artistTypes as $at) {
+            $collaborateurs[$at->type->type][] = $at->artist;
+        }
+
         return view('show.show', [
             'show' => $show,
+            'collaborateurs' => $collaborateurs,
         ]);
         //
     }

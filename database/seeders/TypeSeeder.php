@@ -20,15 +20,8 @@ class TypeSeeder extends Seeder
         DB::statement("SET FOREIGN_KEY_CHECKS=1");
 
         $types = [
-            ['type'=>"danseur"],
-            ['type'=>"humoriste"],
-            ['type'=>"jongleur"],
-            ['type'=>"marionnettiste"],
-            ['type'=>"musicien‎"],
-            ['type'=>"prestidigitateur"],
             ['type'=>"auteur"],
             ['type'=>"scénographe"],
-            ['type'=>"comédien"],
             ['type'=>"comédien"],
         ];
 
