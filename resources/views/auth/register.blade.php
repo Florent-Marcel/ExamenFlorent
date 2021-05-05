@@ -26,6 +26,30 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
+            <div class="mt-4">
+                <x-label for="login" :value="__('Login')" />
+
+                <x-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="firstname" :value="__('Firstname')" />
+
+                <x-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="lastname" :value="__('Lastname')" />
+
+                <x-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="langue" :value="__('Langue')" />
+
+                <x-input id="langue" class="block mt-1 w-full" type="text" name="langue" :value="old('langue')" required />
+            </div>
+
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
