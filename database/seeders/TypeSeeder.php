@@ -15,16 +15,14 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-
+        DB::statement("SET FOREIGN_KEY_CHECKS=0");
         DB::table('types')->truncate();
+        DB::statement("SET FOREIGN_KEY_CHECKS=1");
 
         $types = [
-            ['type'=>"Danseur"],
-            ['type'=>"Humoriste"],
-            ['type'=>"Jongleur"],
-            ['type'=>"Marionnettiste"],
-            ['type'=>"Musicien‎"],
-            ['type'=>"Prestidigitateur"]
+            ['type'=>"auteur"],
+            ['type'=>"scénographe"],
+            ['type'=>"comédien"],
         ];
 
         DB::table('types')->insert($types);

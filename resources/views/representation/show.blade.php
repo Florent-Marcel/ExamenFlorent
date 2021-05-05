@@ -22,5 +22,6 @@
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif
+    <br/>
     <nav><a class="hover:text-blue-600" href="{{ route('representation_index') }}">Retour à l'index</a></nav>
 </x-app-layout>
