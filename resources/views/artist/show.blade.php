@@ -11,6 +11,7 @@
                 <li>{{ $type->type }}</li>
             @endforeach
         </ul>
+        <div><a href="{{ route('artist_edit',$artist->id)}}">Mofifier</a></div>
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif
