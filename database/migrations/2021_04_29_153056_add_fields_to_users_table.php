@@ -16,10 +16,10 @@ class AddFieldsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
         //
         // Define new structure
-            $table->string('login');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('langue');
+            $table->string('login', 30);
+            $table->string('firstname', 60);
+            $table->string('lastname', 60);
+            $table->string('langue', 2);
 
         });
     }
