@@ -47,7 +47,4 @@
             </ul>
         </div>
     @endif
-
-    <nav><a class="hover:text-blue-600" ref="{{ route('artist_index') }}">Retour à l'index</a></nav>
-
 </x-app-layout>

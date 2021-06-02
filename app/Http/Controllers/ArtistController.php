@@ -80,7 +80,7 @@ class ArtistController extends Controller
         //
         $validated = $request -> validate
             (['firstname' => 'required|max:60',
-            'lastname' => 'required|max60',
+            'lastname' => 'required|max:60',
         ]);
         $artist = Artist::find($id);
         $artist -> update($validated);

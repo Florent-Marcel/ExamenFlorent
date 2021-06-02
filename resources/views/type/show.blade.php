@@ -11,6 +11,7 @@
                 <li>{{ $artist->firstname }} {{ $artist->lastname }}</li>
             @endforeach
         </ul>
+        <div><a href="{{ route('type_edit',$type->id)}}">Modifier</a></div>
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif
