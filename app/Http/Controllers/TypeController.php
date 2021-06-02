@@ -67,6 +67,8 @@ class TypeController extends Controller
     public function edit($id)
     {
         //
+        $type = Type::find($id);
+        return view('type.edit',['type' => $type]);
     }
 
     /**
@@ -79,6 +81,13 @@ class TypeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validated = $request -> validate
+            (['type' => 'required|max:60'
+            ]);
+        $type = Type::find($id);
+        $type -> update($validated);
+        return view('type.show',['type' => $type,
+        ]);
     }
 
     /**
