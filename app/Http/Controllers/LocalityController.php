@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artist;
 use Illuminate\Http\Request;
 use App\Models\Locality;
 
@@ -15,7 +16,7 @@ class LocalityController extends Controller
     public function index()
     {
         $localities=Locality::All();
-        
+
         return view('locality.index',['localities'=> $localities,'resource'=> 'localities']);
     }
 
@@ -61,7 +62,11 @@ class LocalityController extends Controller
      */
     public function edit($id)
     {
-        //
+        $locality = Locality::find($id);
+
+        return view('Locality.edit',[
+            'locality' => $locality,
+        ]);
     }
 
     /**
@@ -73,7 +78,18 @@ class LocalityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'postal_code' => 'required|max:6',
+            'locality' => 'required|max:60',
+        ]);
+
+        $locality = Locality::find($id);
+
+        $locality->update($validated);
+
+        return view('Locality.show',[
+            'locality' => $locality
+        ]);
     }
 
     /**

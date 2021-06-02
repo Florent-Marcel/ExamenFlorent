@@ -8,6 +8,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RepresentationController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\RoleController;
+use App\Models\Locality;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,8 @@ use App\Http\Controllers\RoleController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -55,6 +56,10 @@ Route::get('/show/{id}', [ShowController::class, 'show'])
 Route::get('/representation', [RepresentationController::class, 'index'])->middleware(['auth'])->name('representation_index');
 Route::get('/representation/{id}', [RepresentationController::class, 'show'])
                 ->where('id', '[0-9]+')->middleware(['auth'])->name('representation_show');
+
+Route::get('/locality/edit/{id}', [LocalityController::class, 'edit'])->middleware(['auth'])->name('locality_edit');
+Route::put('/locality/{id}', [LocalityController::class, 'update'])
+        ->where('id', '[0-9]+')->middleware(['auth'])->name('locality_update');
 
 
 require __DIR__.'/auth.php';
