@@ -3,13 +3,30 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Models\Concerns\IsFilamentUser;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use SebastianBergmann\Environment\Console;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, IsFilamentUser;
+
+    public function canAccessFilament(){
+        foreach($this->roles as $role){
+            if($role->role == 'admin'){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function isFilamentAdmin()
+    {
+        return $this->canAccessFilament();
+    }
 
     /**
      * The attributes that are mass assignable.
