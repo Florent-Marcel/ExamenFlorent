@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
                 'lastname'=>'AdminLastname',
                 'name'=>'AdminName',
                 'email'=>'admin@admin.be',
-                'langue'=>'Français',
+                'langue'=>'fr',
             ],
             [
                 'login'=>'Patrice',
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
                 'lastname'=>'Verstichel',
                 'name'=>'PatriceVerstichel',
                 'email'=>'patrice.verstichel@gmail.com',
-                'langue'=>'Français',
+                'langue'=>'fr',
             ],
             [
                 'login'=>'Florent',
@@ -47,7 +47,7 @@ class UserSeeder extends Seeder
                 'lastname'=>'Marcel',
                 'name'=>'FlorentMarcel',
                 'email'=>'flo.marcel@hotmail.com',
-                'langue'=>'Français',
+                'langue'=>'fr',
             ]
             ];
         DB::table('users')->insert($users);

@@ -6,6 +6,7 @@ use App\Http\Controllers\TypeController;
 use App\Http\Controllers\LocalityController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RepresentationController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\RoleController;
 use App\Models\Locality;
@@ -71,5 +72,7 @@ Route::get('/locality/edit/{id}', [LocalityController::class, 'edit'])->middlewa
 Route::put('/locality/{id}', [LocalityController::class, 'update'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('locality_update');
 
-
+Route::get('/reservation', [ReservationController::class, 'index'])->middleware(['auth'])->name('reservation_index'); // Ajout B
+Route::get('/reservation/{id}', [ReservationController::class, 'show'])                                               // Ajout B
+        ->where('id', '[0-9]+')->middleware(['auth'])->name('reservation_show');              // Ajout B
 require __DIR__.'/auth.php';
