@@ -75,4 +75,9 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->belongsToMany(Representation::class);
     }
+
+    public function reservations(){ // Interprétation de cette f(x): Un utilisateur. c'est à dire User (la classe dans la quelle est dénie la fonction) peut avoir +eurs reservations
+        return $this->hasMany(Resservation::class);// Raison pour laquelle cette f(x): reservations est au pluriel
+        // hasMany a plusieur
+    }
 }
