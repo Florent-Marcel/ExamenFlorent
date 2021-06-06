@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Location extends Model
 {
@@ -54,4 +55,12 @@ class Location extends Model
         return $this->hasMany(Representation::class);
     }
 
+    protected static function boot() {
+        parent::boot();
+
+        //génère le slug
+        self::saving(function ($question){
+            $question->slug = Str::slug($question->designation);
+        });
+    }
 }
