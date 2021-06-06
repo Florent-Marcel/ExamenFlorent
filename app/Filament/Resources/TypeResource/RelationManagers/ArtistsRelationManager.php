@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\ArtistResource\RelationManagers;
+namespace App\Filament\Resources\TypeResource\RelationManagers;
 
-use App\Filament\Resources\TypeResource;
+use App\Filament\Resources\ArtistResource;
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
 use Filament\Resources\RelationManager;
@@ -10,22 +10,23 @@ use Filament\Resources\Tables\Columns;
 use Filament\Resources\Tables\Filter;
 use Filament\Resources\Tables\Table;
 
-class TypesRelationManager extends RelationManager
+class ArtistsRelationManager extends RelationManager
 {
-    public static $primaryColumn = 'type';
+    public static $primaryColumn = 'id';
 
-    public static $relationship = 'types';
+    public static $relationship = 'artists';
 
     public static function form(Form $form)
     {
-        return TypeResource::form($form);
+        return ArtistResource::form($form);
     }
 
     public static function table(Table $table)
     {
         return $table
             ->columns([
-                Columns\Text::make('type')->sortable()->searchable(),
+                Columns\Text::make('firstname')->sortable()->searchable(),
+                Columns\Text::make('lastname')->sortable()->searchable(),
             ])
             ->filters([
                 //
