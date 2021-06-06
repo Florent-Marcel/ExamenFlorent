@@ -47,7 +47,7 @@ class ArtistResource extends Resource
     public static function relations()
     {
         return [
-            //
+            RelationManagers\TypesRelationManager::class,
         ];
     }
 
