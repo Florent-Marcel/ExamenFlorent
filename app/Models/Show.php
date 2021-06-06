@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Show extends Model
 {
@@ -32,5 +33,14 @@ class Show extends Model
 
     public function artistTypes(){
         return $this->belongsToMany(ArtistType::class);
+    }
+
+    protected static function boot() {
+        parent::boot();
+
+        //génère le slug
+        self::saving(function ($question){
+            $question->slug = Str::slug($question->title);
+        });
     }
 }
