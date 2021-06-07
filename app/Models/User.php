@@ -80,4 +80,13 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(Resservation::class);// Raison pour laquelle cette f(x): reservations est au pluriel
         // hasMany a plusieur
     }
+
+    public function isAdmin(){
+        foreach($this->roles as $role){
+            if($role->role == 'admin'){
+                return true;
+            }
+        }
+        return false;
+    }
 }

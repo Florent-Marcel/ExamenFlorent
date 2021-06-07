@@ -75,4 +75,8 @@ Route::put('/locality/{id}', [LocalityController::class, 'update'])
 Route::get('/reservation', [ReservationController::class, 'index'])->middleware(['auth'])->name('reservation_index'); // Ajout B
 Route::get('/reservation/{id}', [ReservationController::class, 'show'])                                               // Ajout B
         ->where('id', '[0-9]+')->middleware(['auth'])->name('reservation_show');              // Ajout B
+
+
+//Route::get('/admin', [ReservationController::class, 'admin'])->middleware(['auth'])->name('reservation_index');
+
 require __DIR__.'/auth.php';
