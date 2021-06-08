@@ -18,7 +18,11 @@ class UsersRelationManager extends RelationManager
 
     public static function form(Form $form)
     {
-        return UserResource::form($form);
+        return $form
+            ->schema([
+                // On empèche la modification des utilisateurs via la relation, car le hook de UserResource n'est pas appellé pour hashé le mot de passe.
+            ]);
+        //return UserResource::form($form);
     }
 
     public static function table(Table $table)

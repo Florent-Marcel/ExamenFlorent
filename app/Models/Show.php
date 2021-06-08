@@ -34,13 +34,4 @@ class Show extends Model
     public function artistTypes(){
         return $this->belongsToMany(ArtistType::class);
     }
-
-    protected static function boot() {
-        parent::boot();
-
-        //génère le slug
-        self::saving(function ($question){
-            $question->slug = Str::slug($question->title);
-        });
-    }
 }

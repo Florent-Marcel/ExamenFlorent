@@ -54,13 +54,4 @@ class Location extends Model
     public function representations(){
         return $this->hasMany(Representation::class);
     }
-
-    protected static function boot() {
-        parent::boot();
-
-        //génère le slug
-        self::saving(function ($question){
-            $question->slug = Str::slug($question->designation);
-        });
-    }
 }
