@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\RepresentationResource\Pages;
 use App\Filament\Resources\RepresentationResource\RelationManagers;
+use App\Filament\Resources\RepresentationResource\RelationManagers\UsersRelationManager;
 use App\Filament\Roles;
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
@@ -21,10 +22,12 @@ class RepresentationResource extends Resource
         return $form
             ->schema([
                 Components\BelongsToSelect::make('show_id')
+                    ->required()
                     ->relationship('show', 'title'),
-                Components\BelongsToSelect::make('show_id')
-                    ->relationship('show', 'title')
-
+                Components\BelongsToSelect::make('location_id')
+                    ->relationship('location', 'designation'),
+                Components\DateTimePicker::make('when')
+                    ->required(),
             ]);
     }
 
@@ -44,7 +47,7 @@ class RepresentationResource extends Resource
     public static function relations()
     {
         return [
-            //
+            UsersRelationManager::class
         ];
     }
 

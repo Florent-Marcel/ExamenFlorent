@@ -138,7 +138,7 @@ return [
     |
     */
 
-    'user_resource' => \Filament\Resources\UserResource::class,
+    'user_resource' => app\Filament\Resources\UserResource::class,
 
     /*
     |--------------------------------------------------------------------------

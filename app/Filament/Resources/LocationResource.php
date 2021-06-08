@@ -26,7 +26,7 @@ class LocationResource extends Resource
                     ->max(60)
                     ->dependable()
                     ->autofocus()
-                    ->unique('locations', 'designation'),
+                    ->unique('locations', 'designation', true),
                 Components\TextInput::make('address')
                     ->max(255)
                     ->nullable(),

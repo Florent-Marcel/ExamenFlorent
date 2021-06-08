@@ -16,7 +16,7 @@ class AddFieldsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
         //
         // Define new structure
-            $table->string('login', 30);
+            $table->string('login', 30)->unique();
             $table->string('firstname', 60);
             $table->string('lastname', 60);
             $table->string('langue', 2);

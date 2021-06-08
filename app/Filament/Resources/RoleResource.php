@@ -2,18 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TypeResource\Pages;
-use App\Filament\Resources\TypeResource\RelationManagers;
+use App\Filament\Resources\RoleResource\Pages;
+use App\Filament\Resources\RoleResource\RelationManagers;
+use App\Filament\Resources\RoleResource\RelationManagers\UsersRelationManager;
 use App\Filament\Roles;
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
-use Filament\Resources\RelationManager;
 use Filament\Resources\Resource;
 use Filament\Resources\Tables\Columns;
+use Filament\Resources\Tables\Columns\Column;
 use Filament\Resources\Tables\Filter;
 use Filament\Resources\Tables\Table;
 
-class TypeResource extends Resource
+class RoleResource extends Resource
 {
     public static $icon = 'heroicon-o-collection';
 
@@ -21,11 +22,11 @@ class TypeResource extends Resource
     {
         return $form
             ->schema([
-                Components\TextInput::make('type')
-                    ->autofocus()
+                Components\TextInput::make('role')
+                    ->unique('roles', 'role', true)
+                    ->max(30)
                     ->required()
-                    ->unique('types', 'type', true)
-                    ->max(60),
+                    ->autofocus(),
             ]);
     }
 
@@ -33,7 +34,7 @@ class TypeResource extends Resource
     {
         return $table
             ->columns([
-                Columns\Text::make('type')->sortable()->searchable(),
+                Columns\Text::make('role')->searchable()->sortable()
             ])
             ->filters([
                 //
@@ -43,16 +44,16 @@ class TypeResource extends Resource
     public static function relations()
     {
         return [
-            RelationManagers\ArtistsRelationManager::class,
+            UsersRelationManager::class,
         ];
     }
 
     public static function routes()
     {
         return [
-            Pages\ListTypes::routeTo('/', 'index'),
-            Pages\CreateType::routeTo('/create', 'create'),
-            Pages\EditType::routeTo('/{record}/edit', 'edit'),
+            Pages\ListRoles::routeTo('/', 'index'),
+            Pages\CreateRole::routeTo('/create', 'create'),
+            Pages\EditRole::routeTo('/{record}/edit', 'edit'),
         ];
     }
 }

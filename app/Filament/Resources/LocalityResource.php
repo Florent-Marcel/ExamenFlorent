@@ -27,7 +27,7 @@ class LocalityResource extends Resource
                 Components\TextInput::make('locality')
                     ->autofocus()
                     ->required()
-                    ->unique('localities', 'locality')
+                    ->unique('localities', 'locality', true)
                     ->max(60),
             ]);
     }
