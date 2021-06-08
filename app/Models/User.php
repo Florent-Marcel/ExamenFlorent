@@ -89,4 +89,13 @@ class User extends Authenticatable implements FilamentUser
         }
         return false;
     }
+
+    public function isAffiliate(){
+        foreach($this->roles as $role){
+            if($role->role == 'affiliate'){
+                return true;
+            }
+        }
+        return false;
+    }
 }
