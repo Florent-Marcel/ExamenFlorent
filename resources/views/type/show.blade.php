@@ -7,9 +7,13 @@
         <br/>
         <h2 class="text-lg">Liste des artistes</h2>
         <ul>
-            @foreach ($type->artists as $artist)
-                <li>{{ $artist->firstname }} {{ $artist->lastname }}</li>
-            @endforeach
+            @if($type->artists->count() > 0)
+                @foreach ($type->artists as $artist)
+                    <li>{{ $artist->firstname }} {{ $artist->lastname }}</li>
+                @endforeach
+            @else
+                Aucun
+            @endif
         </ul>
         <div><a href="{{ route('type_edit',$type->id)}}">Modifier</a></div>
     @else

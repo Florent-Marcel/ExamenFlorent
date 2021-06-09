@@ -29,9 +29,13 @@
             <br/>
             <h2 class="text-lg">Liste des spectacles</h2>
             <ul>
-                @foreach ($location->shows as $show)
-                    <li>{{ $show->title }}</li>
-                @endforeach
+                @if($location->shows->count() > 0)
+                    @foreach ($location->shows as $show)
+                        <li>{{ $show->title }}</li>
+                    @endforeach
+                @else
+                    Aucun
+                @endif
             </ul>
         </article>
     @else

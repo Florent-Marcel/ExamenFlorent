@@ -48,33 +48,45 @@
             <h2 class="text-lg">Liste des artistes</h2>
             <p>
                 <strong>Auteur:</strong>
-                @foreach ($collaborateurs['auteur'] as $auteur)
-                    {{ $auteur->firstname }}
-                    {{ $auteur->lastname }}
-                    @if($loop->iteration == $loop->count-1) et
-                    @elseif(!$loop->last),
-                    @endif
-                @endforeach
+                @if(!empty($collaborateurs['auteur']))
+                    @foreach ($collaborateurs['auteur'] as $auteur)
+                        {{ $auteur->firstname }}
+                        {{ $auteur->lastname }}
+                        @if($loop->iteration == $loop->count-1) et
+                        @elseif(!$loop->last),
+                        @endif
+                    @endforeach
+                @else
+                    Aucun
+                @endif
             </p>
             <p>
                 <strong>Metteur en scène:</strong>
-                @foreach ($collaborateurs['scénographe'] as $scenographe)
-                    {{ $scenographe->firstname }}
-                    {{ $scenographe->lastname }}
-                    @if($loop->iteration == $loop->count-1) et
-                    @elseif(!$loop->last),
-                    @endif
-                @endforeach
+                @if(!empty($collaborateurs['scénographe']))
+                    @foreach ($collaborateurs['scénographe'] as $scenographe)
+                        {{ $scenographe->firstname }}
+                        {{ $scenographe->lastname }}
+                        @if($loop->iteration == $loop->count-1) et
+                        @elseif(!$loop->last),
+                        @endif
+                    @endforeach
+                @else
+                    Aucun
+                @endif
             </p>
             <p>
                 <strong>Distribution:</strong>
-                @foreach ($collaborateurs['comédien'] as $comedien)
-                    {{ $comedien->firstname }}
-                    {{ $comedien->lastname }}
-                    @if($loop->iteration == $loop->count-1) et
-                    @elseif(!$loop->last),
-                    @endif
-                @endforeach
+                @if(!empty($collaborateurs['comédien']))
+                    @foreach ($collaborateurs['comédien'] as $comedien)
+                        {{ $comedien->firstname }}
+                        {{ $comedien->lastname }}
+                        @if($loop->iteration == $loop->count-1) et
+                        @elseif(!$loop->last),
+                        @endif
+                    @endforeach
+                @else
+                    Aucun
+                @endif
             </p>
         </article>
     @else

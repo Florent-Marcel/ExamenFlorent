@@ -42,9 +42,9 @@ Route::put('/artist/{id}', [ArtistController::class, 'update'])
 Route::get('/type', [TypeController::class, 'index'])->middleware(['auth'])->name('type_index');
 Route::get('/type/{id}', [TypeController::class, 'show'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('type_show');
-Route::get('/type/edit/{id}', [ArtistController::class, 'edit'])
+Route::get('/type/edit/{id}', [TypeController::class, 'edit'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('type_edit');
-Route::put('/type/{id}', [ArtistController::class, 'update'])
+Route::put('/type/{id}', [TypeController::class, 'update'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('type_update');
 
 
