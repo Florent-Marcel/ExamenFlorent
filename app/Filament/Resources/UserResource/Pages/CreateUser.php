@@ -11,6 +11,6 @@ class CreateUser extends CreateRecord
 
     protected function beforeCreate()
     {
-        $this->record->password = password_hash($this->record->password, PASSWORD_DEFAULT);
+        $this->record['password'] = password_hash($this->record['password'], PASSWORD_DEFAULT);
     }
 }

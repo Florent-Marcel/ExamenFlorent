@@ -8,7 +8,7 @@ use Filament\Resources\RelationManager;
 use Filament\Resources\Tables\Columns;
 use Filament\Resources\Tables\Filter;
 use Filament\Resources\Tables\Table;
-use Filament\Resources\UserResource;
+use app\Filament\Resources\UserResource;
 
 class UsersRelationManager extends RelationManager
 {
