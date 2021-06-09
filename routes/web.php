@@ -8,7 +8,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RepresentationController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\RoleController;
-use App\Models\Locality;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,10 +50,18 @@ Route::put('/type/{id}', [ArtistController::class, 'update'])
 Route::get('/role', [RoleController::class, 'index'])->middleware(['auth'])->name('role_index');
 Route::get('/role/{id}', [RoleController::class, 'show'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('role_show');
+Route::get('/role/edit/{id}', [RoleController::class, 'edit'])
+        ->where('id', '[0-9]+')->middleware(['auth'])->name('role_edit');        
+Route::put('/role/{id}', [RoleController::class, 'update'])
+        ->where('id', '[0-9]+')->middleware(['auth'])->name('role_update');
+
 
 Route::get('/locality', [LocalityController::class, 'index'])->middleware(['auth'])->name('locality_index');
 Route::get('/locality/{id}', [LocalityController::class, 'show'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('locality_show');
+Route::get('/locality/edit/{id}', [LocalityController::class, 'edit'])->middleware(['auth'])->name('locality_edit');
+Route::put('/locality/{id}', [LocalityController::class, 'update'])
+        ->where('id', '[0-9]+')->middleware(['auth'])->name('locality_update');        
 
 Route::get('/location', [LocationController::class, 'index'])->middleware(['auth'])->name('location_index');
 Route::get('/location/{id}', [LocationController::class, 'show'])
@@ -67,9 +75,11 @@ Route::get('/representation', [RepresentationController::class, 'index'])->middl
 Route::get('/representation/{id}', [RepresentationController::class, 'show'])
                 ->where('id', '[0-9]+')->middleware(['auth'])->name('representation_show');
 
-Route::get('/locality/edit/{id}', [LocalityController::class, 'edit'])->middleware(['auth'])->name('locality_edit');
-Route::put('/locality/{id}', [LocalityController::class, 'update'])
-        ->where('id', '[0-9]+')->middleware(['auth'])->name('locality_update');
+
 
 
 require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

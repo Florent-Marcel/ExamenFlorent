@@ -5,6 +5,7 @@
 
     @if (!empty ($role))
         <h1 class="text-xl font-bold"> {{ $role->role}} </h1>
+        <div> <a href ="{{route('role_edit', $role->id)}}">Modifier</a></div>
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif

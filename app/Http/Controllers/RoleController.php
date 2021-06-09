@@ -52,7 +52,7 @@ class RoleController extends Controller
     {
         //
         $role = Role::find($id);
-        return view('role.show', ['role' => $role,]);
+        return view('role.show', ['role' => $role]);
     }
 
     /**
@@ -63,7 +63,11 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = Role::find($id);
+
+        return view('Role.edit',[
+            'role' => $role
+        ]);
     }
 
     /**
@@ -75,7 +79,16 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request -> validate([
+            'role' => 'required|max:30'
+        ]);
+
+        $role = Role::find($id);
+        $role->update($validated);
+
+        return view('Role.show',[
+            'role' => $role
+        ]);
     }
 
     /**
