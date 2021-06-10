@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -68,6 +69,8 @@ class ReservationController extends Controller
     public function edit($id)
     {
         //
+        //$reservation = Reservation::find($id)
+        //return view('reservation.edit',['reservation' => $reservation]);
     }
 
     /**
@@ -80,10 +83,36 @@ class ReservationController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validated = $request -> validate([
+
+        ]);
+
     }
 
-    public function book(){
+    public function book(Request $request, $id)
+    {
+        $check = Reservation::where(
+            ['representation_id' => $id,
+            'user_id' => Auth::user()->id,
+            ]);
 
+        if ($check->count() <1 )
+        {
+            $var = Reservation::create([
+                'representation_id' => $id,
+                'user_id' => Auth::user()->id,
+                'places' => $request->input('places')
+            ]);
+
+            return view('reservation.show',[
+               'reservation'  => $var,
+            ]);
+        }
+        else{
+            return view('reservation.show',[
+
+            ]);
+        }
 
     }
 

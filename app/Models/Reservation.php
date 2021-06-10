@@ -42,7 +42,7 @@ class Reservation extends Model // Ajout B
      * Get user for this role
      */
     public function representation(){ // Interprétation de cette f(x): Une reservation, c.a.d Reservation (La aclasse dans la quelle cette f(x) est définie ) est concernée/appartient à une seule réprésentation
-        return $this->belongTo(Representation::class); // Raison pour laquelle la f(x) est écrite au singulier.
+        return $this->belongsTo(Representation::class); // Raison pour laquelle la f(x) est écrite au singulier.
         // belongTo (appartient à)
     }
 
