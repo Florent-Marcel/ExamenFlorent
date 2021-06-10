@@ -45,5 +45,4 @@ class Reservation extends Model // Ajout B
         return $this->belongsTo(Representation::class); // Raison pour laquelle la f(x) est écrite au singulier.
         // belongTo (appartient à)
     }
-
 }
