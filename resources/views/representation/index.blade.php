@@ -17,6 +17,7 @@
                 <th class="text-left">Date</th>
                 <th class="text-left">Prix</th>
                 <th class="text-left">Réservable</th>
+                <th class="text-left">Réserver</th>
             </tr>
         </thead>
         <tbody>
@@ -34,6 +35,13 @@
                     <td class="text-left"><datetime> {{ substr($representation->when,0,-3) }}</datetime></td>
                     <td class="text-left"><span>{{ $representation->show->price }} €</span></td>
                     <td class="text-left"><span>{{ ($representation->show->bookable== true ) ? "Oui" : "Non"  }} </span></td>
+                    <td class:"text-left"><span>
+                        @if ($representation->show->bookable)
+                            <a class="hover:text-blue-600" href="{{ route('representation_book',$representation->id)}}">Réserver</a>
+                        @else
+                            <span class="text-left">/</span>
+                        @endif
+                    </td>
                 </tr>
             @endforeach
         </tbody>
@@ -44,6 +52,7 @@
                 <th class="text-left">Date</th>
                 <th class="text-left">Prix</th>
                 <th class="text-left">Réservable</th>
+                <th class="text-left">Réserver</th>
             </tr>
         </tfoot>
     </table>

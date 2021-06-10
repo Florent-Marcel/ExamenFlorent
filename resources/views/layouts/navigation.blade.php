@@ -33,6 +33,9 @@
                     <x-nav-link :href="route('representation_index')" :active="request()->routeIs('representation_index')">
                         {{ __('Représentation') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('reservation_index')" :active="request()->routeIs('reservation_index')">
+                        {{ __('Réservation') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>

@@ -67,16 +67,17 @@ Route::get('/show/{id}', [ShowController::class, 'show'])
 Route::get('/representation', [RepresentationController::class, 'index'])->name('representation_index');
 Route::get('/representation/{id}', [RepresentationController::class, 'show'])
                 ->where('id', '[0-9]+')->name('representation_show');
+Route::get('/representation/book/{id}', [RepresentationController::class, 'book'])
+                ->where('id', '[0-9]+')->middleware(['auth'])->name('representation_book');
 
 Route::get('/locality/edit/{id}', [LocalityController::class, 'edit'])->middleware(['auth'])->name('locality_edit');
 Route::put('/locality/{id}', [LocalityController::class, 'update'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('locality_update');
 
-Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation_index'); // Ajout B
-Route::get('/reservation/{id}', [ReservationController::class, 'show'])                                               // Ajout B
-        ->where('id', '[0-9]+')->name('reservation_show');              // Ajout B
-
-
-//Route::get('/admin', [ReservationController::class, 'admin'])->middleware(['auth'])->name('reservation_index');
+Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation_index'); 
+Route::get('/reservation/{id}', [ReservationController::class, 'show'])                                               
+        ->where('id', '[0-9]+')->name('reservation_show');              
+Route::put('/reservation/book/{id}', [ReservationController::class, 'book'])
+        ->where('id', '[0-9]+')->middleware(['auth'])->name('reservation_book');
 
 require __DIR__.'/auth.php';
