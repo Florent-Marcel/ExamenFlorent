@@ -15,7 +15,9 @@
                 Aucun
             @endif
         </ul>
-        <div><a href="{{ route('type_edit',$type->id)}}">Modifier</a></div>
+        @if(Auth::user() != null and Auth::user()->isAdmin())
+            <div><a href="{{ route('type_edit',$type->id)}}">Modifier</a></div>
+        @endif
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif

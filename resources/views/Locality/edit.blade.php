@@ -3,7 +3,7 @@
         <h2>Modifier une localité</h2>
     </x-slot>
 
-    @if(!empty($locality))
+    @if(!empty($locality) and Auth::user()->isAdmin())
         <form action="{{ route('locality_update', $locality->id) }}" method="post">
             @csrf
             @method('PUT')
@@ -50,6 +50,14 @@
             </ul>
         </div>
         @endif
+    @elseif(!Auth::user()->isAdmin())
+        <p>
+            Vous n'avez pas l'autorisation pour voir cette page
+        </p>
+    @else
+        <p>
+            La localité n'existe pas
+        </p>
     @endif
     <nav><a class="hover:text-blue-600" href="{{ route('locality_index') }}">Retour à l'index</a></nav>
 </x-app-layout>
