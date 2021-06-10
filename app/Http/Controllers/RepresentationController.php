@@ -72,7 +72,20 @@ class RepresentationController extends Controller
      */
     public function edit($id)
     {
-        //
+
+    }
+
+    public function book($id)
+    {
+        $representation = Representation::find($id);
+        $date = Carbon::parse($representation->when)->format('d/m/Y');
+        $time = Carbon::parse($representation->when)->format('G:i');
+
+        return view('Representation.book', [
+            'representation' => $representation,
+            'date' => $date,
+            'time' => $time
+        ]);
     }
 
     /**
