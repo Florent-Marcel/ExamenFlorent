@@ -23,7 +23,7 @@ class ArtistTypeShowSeeder extends Seeder
         $shows = Show::all();
 
         ArtistType::all()->each(function ($artistType) use ($shows){
-            $artistType->show()->attach(
+            $artistType->shows()->attach(
                 $shows->random(rand(1, 2))->pluck('id')->toArray()
             );
         });

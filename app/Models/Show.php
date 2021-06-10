@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Show extends Model
 {
@@ -32,5 +33,9 @@ class Show extends Model
 
     public function artistTypes(){
         return $this->belongsToMany(ArtistType::class);
+    }
+
+    public function searchByName($name){
+        return Show::where('slug', Str::slug($name));
     }
 }

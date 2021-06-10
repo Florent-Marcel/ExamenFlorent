@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2>Modifier un type</h2>
     </x-slot>
-    @if (!empty ($type))
+    @if (!empty ($type) and Auth::user()->isAdmin())
         <form action="{{route('type_update', $type->id)}}"  method="post">
             @csrf
             @method('PUT')
@@ -23,6 +23,14 @@
                 <BR><BR><button>Modifier</button>
                 <a class="hover:text-blue-600" href="{{route('type_show',$type->id)}}" >Annuler</a>
         </form>
+    @elseif(!Auth::user()->isAdmin())
+        <p>
+            Vous n'avez pas l'autorisation pour voir cette page
+        </p>
+    @else
+        <p>
+            Le type n'existe pas
+        </p>
     @endif
     @if ($errors->any())
         <div class="alert allert-danger">
