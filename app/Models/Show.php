@@ -34,4 +34,8 @@ class Show extends Model
     public function artistTypes(){
         return $this->belongsToMany(ArtistType::class);
     }
+
+    public function searchByName($name){
+        return Show::where('slug', Str::slug($name));
+    }
 }
