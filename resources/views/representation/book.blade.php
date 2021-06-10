@@ -22,7 +22,7 @@
             </div>
             <div>
                 <label for='places'>Nombre de places souhaitées</label>
-                <input type='text'id="places" name="places"
+                <input type='number' min="1" id="places" name="places"
                 @if(old('places'))
                     value="{{ old('places')}}"
 

@@ -74,9 +74,9 @@ Route::get('/locality/edit/{id}', [LocalityController::class, 'edit'])->middlewa
 Route::put('/locality/{id}', [LocalityController::class, 'update'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('locality_update');
 
-Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation_index'); 
-Route::get('/reservation/{id}', [ReservationController::class, 'show'])                                               
-        ->where('id', '[0-9]+')->name('reservation_show');              
+Route::get('/reservation', [ReservationController::class, 'index'])->middleware(['auth'])->name('reservation_index');
+Route::get('/reservation/{id}', [ReservationController::class, 'show'])
+        ->where('id', '[0-9]+')->middleware(['auth'])->name('reservation_show');
 Route::put('/reservation/book/{id}', [ReservationController::class, 'book'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('reservation_book');
 

@@ -16,13 +16,19 @@ class ReservationController extends Controller
     public function index()
     {
         //
-        $reservations=Reservation::All();
+
+        if(Auth::user()->isAdmin()){
+            $reservations=Reservation::All();
+        }else{
+            $reservations=Reservation::where('user_id', '=', Auth::user()->id)->get();
+        }
 
         return view('reservation.index',[
             'reservations'=> $reservations,
             'resource'=> 'reservations'
-            ]); // Ajout B
+            ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
