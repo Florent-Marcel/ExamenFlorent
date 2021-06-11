@@ -110,15 +110,11 @@ class ReservationController extends Controller
                 'places' => $request->input('places')
             ]);
 
-            return view('reservation.show',[
-               'reservation'  => $var,
-            ]);
         }
-        else{
-            return view('reservation.show',[
 
-            ]);
-        }
+        return $this->index();
+
+
 
     }
 
