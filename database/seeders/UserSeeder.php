@@ -27,27 +27,27 @@ class UserSeeder extends Seeder
                 'password'=> Hash::make(123456789),
                 'firstname'=>'AdminFirstname',
                 'lastname'=>'AdminLastname',
-                'name'=>'AdminName',
+                //'name'=>'AdminName',
                 'email'=>'admin@admin.be',
-                'langue'=>'Français',
+                'langue'=>'fr',
             ],
             [
                 'login'=>'Patrice',
                 'password'=> Hash::make(123456789),
                 'firstname'=>'Patrice',
                 'lastname'=>'Verstichel',
-                'name'=>'PatriceVerstichel',
+                //'name'=>'PatriceVerstichel',
                 'email'=>'patrice.verstichel@gmail.com',
-                'langue'=>'Français',
+                'langue'=>'fr',
             ],
             [
                 'login'=>'Florent',
                 'password'=> Hash::make(123456789),
                 'firstname'=>'Florent',
                 'lastname'=>'Marcel',
-                'name'=>'FlorentMarcel',
+                //'name'=>'FlorentMarcel',
                 'email'=>'flo.marcel@hotmail.com',
-                'langue'=>'Français',
+                'langue'=>'fr',
             ]
             ];
         DB::table('users')->insert($users);

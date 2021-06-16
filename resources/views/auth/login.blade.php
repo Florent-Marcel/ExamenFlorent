@@ -46,7 +46,12 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-
+                &nbsp;
+                @if (Route::has('register'))
+                    <x-button type="button" onclick="location.href='{{ route('register') }}'">
+                        {{ __('Register') }}
+                    </x-button>
+                @endif
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>

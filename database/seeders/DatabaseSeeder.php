@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\RoleUser;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,8 +26,9 @@ class DatabaseSeeder extends Seeder
                     ArtistTypeSeeder::class,
                     ArtistTypeShowSeeder::class,
                     userSeeder::class,
-                    UserRoleSeeder::class,
+                    RoleUserSeeder::class,
                     RepresentationUserSeeder::class,
+                    ReservationSeeder::class,
                     ]);
     }
 }

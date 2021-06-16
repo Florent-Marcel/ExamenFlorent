@@ -4,11 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
-use App\Models\UserRole;
+use App\Models\RoleUser;
 use App\Models\User;
 use App\Models\Role;
 
-class UserRoleSeeder extends Seeder
+class RoleUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,7 +19,7 @@ class UserRoleSeeder extends Seeder
     {
         //Empty the table first
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        DB::table('user_role')->truncate();
+        DB::table('role_user')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         //define data
@@ -66,7 +66,7 @@ class UserRoleSeeder extends Seeder
         }
         unset($data);
         //insert data in tables
-        DB::table('user_role')->insert($userRoles);
+        DB::table('role_user')->insert($userRoles);
 
     }
 }

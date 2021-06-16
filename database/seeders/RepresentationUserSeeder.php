@@ -21,7 +21,7 @@ class RepresentationUserSeeder extends Seeder
     {
         //Empty the table first
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        DB::table('user_role')->truncate();
+        DB::table('representation_user')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         //Define data

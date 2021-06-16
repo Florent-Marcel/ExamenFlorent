@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Show;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ShowController extends Controller
 {
@@ -15,6 +16,19 @@ class ShowController extends Controller
     public function index()
     {
         $shows = Show::all();
+
+        return view('show.index',[
+            'shows' => $shows,
+            'resouce' => 'spectales',
+        ]);
+        //
+    }
+
+    public function search(Request $request)
+    {
+        $toSearch = $request->input('searchShow');
+
+        $shows = Show::where('slug', 'LIKE', '%' . Str::slug($toSearch) . '%')->get();
 
         return view('show.index',[
             'shows' => $shows,

@@ -21,6 +21,14 @@ Route::get('/login', [AuthenticatedSessionController::class, 'create'])
                 ->middleware('guest')
                 ->name('login');
 
+Route::get('/update', [AuthenticatedSessionController::class, 'update'])
+                ->middleware('auth')
+                ->name('update');
+
+Route::post('/update', [RegisteredUserController::class, 'update'])
+                ->middleware('auth')
+                ->name('update');
+
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
                 ->middleware('guest');
 
