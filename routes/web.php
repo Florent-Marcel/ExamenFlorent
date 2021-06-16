@@ -9,7 +9,7 @@ use App\Http\Controllers\RepresentationController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\RoleController;
-use App\Models\Locality;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,10 +51,18 @@ Route::put('/type/{id}', [TypeController::class, 'update'])
 Route::get('/role', [RoleController::class, 'index'])->name('role_index');
 Route::get('/role/{id}', [RoleController::class, 'show'])
         ->where('id', '[0-9]+')->name('role_show');
+Route::get('/role/edit/{id}', [RoleController::class, 'edit'])
+        ->where('id', '[0-9]+')->middleware(['auth'])->name('role_edit');        
+Route::put('/role/{id}', [RoleController::class, 'update'])
+        ->where('id', '[0-9]+')->middleware(['auth'])->name('role_update');
 
 Route::get('/locality', [LocalityController::class, 'index'])->name('locality_index');
 Route::get('/locality/{id}', [LocalityController::class, 'show'])
         ->where('id', '[0-9]+')->name('locality_show');
+Route::get('/locality/edit/{id}', [LocalityController::class, 'edit'])->middleware(['auth'])->name('locality_edit');
+Route::put('/locality/{id}', [LocalityController::class, 'update'])
+        ->where('id', '[0-9]+')->middleware(['auth'])->name('locality_update');        
+
 
 Route::get('/location', [LocationController::class, 'index'])->name('location_index');
 Route::get('/location/{id}', [LocationController::class, 'show'])
@@ -70,9 +78,7 @@ Route::get('/representation/{id}', [RepresentationController::class, 'show'])
 Route::get('/representation/book/{id}', [RepresentationController::class, 'book'])
                 ->where('id', '[0-9]+')->middleware(['auth'])->name('representation_book');
 
-Route::get('/locality/edit/{id}', [LocalityController::class, 'edit'])->middleware(['auth'])->name('locality_edit');
-Route::put('/locality/{id}', [LocalityController::class, 'update'])
-        ->where('id', '[0-9]+')->middleware(['auth'])->name('locality_update');
+
 
 Route::get('/reservation', [ReservationController::class, 'index'])->middleware(['auth'])->name('reservation_index');
 Route::get('/reservation/{id}', [ReservationController::class, 'show'])
@@ -81,3 +87,7 @@ Route::put('/reservation/book/{id}', [ReservationController::class, 'book'])
         ->where('id', '[0-9]+')->middleware(['auth'])->name('reservation_book');
 
 require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

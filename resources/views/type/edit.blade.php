@@ -42,4 +42,5 @@
             </ul>
         </div>
     @endif
+    <nav><a class="hover:text-blue-600" href="{{ route('role_index') }}">Retour à l'index</a></nav>
 </x-app-layout>

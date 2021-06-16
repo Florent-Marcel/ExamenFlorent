@@ -16,7 +16,7 @@
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif
     <br/>
-    @if(Auth::user() != null and Auth::user()->isAdmin)
+    @if(Auth::user() != null and Auth::user()->isAdmin())
         <div><a class="hover:text-blue-600" href="{{ route('locality_edit', $locality->id) }}">Modifier</a></div>
     @endif
     <nav><a class="hover:text-blue-600" href="{{ route('locality_index') }}">Retour à l'index</a></nav>
