@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2>Modifier un role</h2>
     </x-slot>
-    @if(!empty($locality) and Auth::user()->isAdmin())
+    @if(!empty($role) and Auth::user()->isAdmin())
         <form action="{{route('role_update', $role->id)}}"  method="post">
             @csrf
             @method('PUT')

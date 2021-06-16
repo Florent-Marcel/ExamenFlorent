@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2>Modifier un artiste</h2>
     </x-slot>
-    @if(!empty($locality) and Auth::user()->isAdmin())
+    @if(!empty($artist) and Auth::user()->isAdmin())
         <form action="{{route('artist_update', $artist->id)}}" method="post">
             @csrf
             @method('PUT')
