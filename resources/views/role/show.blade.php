@@ -5,7 +5,9 @@
     <p>
       @if (!empty ($role))
         <h1 class="text-xl font-bold"> {{ $role->role}} </h1>
-        <div> <a href ="{{route('role_edit', $role->id)}}">Modifier</a></div>
+        @if(Auth::user() != null and Auth::user()->isAdmin())
+            <div> <a class="hover:text-blue-600" href ="{{route('role_edit', $role->id)}}">Modifier</a></div>
+        @endif
         @if($role->users->count() > 0)
           @foreach ($role->users as $user)
             {{ $user->login }} <br/>

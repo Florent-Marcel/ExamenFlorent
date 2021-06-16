@@ -11,7 +11,9 @@
                 <li>{{ $type->type }}</li>
             @endforeach
         </ul>
-        <div><a href="{{ route('artist_edit',$artist->id)}}">Modifier</a></div>
+        @if(Auth::user() != null and Auth::user()->isAdmin())
+            <div><a href="{{ route('artist_edit',$artist->id)}}">Modifier</a></div>
+        @endif
     @else
         <h1>Il n'y a pas d'enregistrement </h1>
     @endif
