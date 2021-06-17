@@ -11,6 +11,9 @@
                 <li>{{ $type->type }}</li>
             @endforeach
         </ul>
+        <p>
+            {{ $artist->troupe->nom }}
+        </p>
         @if(Auth::user() != null and Auth::user()->isAdmin())
             <div><a href="{{ route('artist_edit',$artist->id)}}">Modifier</a></div>
         @endif

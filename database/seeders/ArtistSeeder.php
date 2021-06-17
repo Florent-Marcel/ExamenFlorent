@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Artist;
+use App\Models\Troupe;
 use Illuminate\Support\Facades\DB;
 
 class ArtistSeeder extends Seeder
@@ -25,6 +26,7 @@ class ArtistSeeder extends Seeder
             [
                 'firstname' => 'Daniel',
                 'lastname' => 'Marcelin',
+                'nomTroupe' => 'test',
             ],
             [
                 'firstname' => 'Philippe',
@@ -71,6 +73,19 @@ class ArtistSeeder extends Seeder
                 'lastname' => 'Gauthier',
             ],
         ];
+
+
+        foreach($artists as &$data){
+            $troupe = Troupe::firstWhere('nom', '=', $data['nomTroupe']);
+            unset($data['nomTroupe']);
+
+            if($troupe != null){
+                $data['trouoe_id'] = $troupe->id;  //troupe_id
+            }
+
+
+        }
+        unset($data);
 
         DB::table('artists')->insert($artists);
     }
